@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 24px;
+}
+
+.header img {
+    margin: 7px 8px 7px 0
+}
+
+footer {
+    width: 312px;
+    height: 56px;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 96px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0px -8px 24px 0px rgba(0, 0, 0, 0.15);
+}
+
+footer div {
+    width: 73px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+footer svg {
+    width: 36px;
+    height: 36px;
+    color: #DA0D1E;
+}
+
+footer p {
+    color: #DA0D1E !important;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+}

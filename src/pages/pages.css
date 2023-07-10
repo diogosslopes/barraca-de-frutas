@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+    color: white;
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+
+}
+
+.supplier-container {
+    background-color: #F0F4F7;
+    width: 360px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.supplier-container .supplier-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 0 16px;
+
+
+}
+
+.supplier-container span {
+    display: flex;
+    width: 328px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #212324;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+.supplier-container button {
+    display: flex;
+    width: 328px;
+    height: 40px;
+    padding: 8px 24px 8px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #da0d1e;
+    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    border: none;
+    gap: 8px;
+
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 1.25px;
+    color: #fff;
+}
+
+.supplier-container button svg{
+    width: 24px;
+    height: 24px;
+}
