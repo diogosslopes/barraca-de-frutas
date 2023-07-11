@@ -4,44 +4,39 @@ import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { VscAdd } from 'react-icons/vsc'
 import Cards from "../components/Cards";
+import { Link } from "react-router-dom";
 
 
 function Suppliers() {
 
-  const [ isEmpty, setIsEmpty] = useState([1])
+  const [isEmpty, setIsEmpty] = useState([])
 
-    return (
-      <>
+  return (
+    <>
       {isEmpty.length === 0 ?
-      <div className="main-container">
-        <div className="supplier-container">
+        <div className="suppliers-container">
           <Header />
-          <div className="supplier-div">
+          <div className="suppliers-div">
             <span>Cadastre seu primeiro fornecedor</span>
-            <button><VscAdd/> Cadastrar Fornecedor</button>
+            <Link to={"novofornecedor"}>
+              <button><VscAdd /> Cadastrar Fornecedor</button>
+
+            </Link>
           </div>
-          <MenuBottom/>
+          <MenuBottom />
         </div>
-      </div>
-      :
-      <div>
-
-      <div className="main-container">
-        <div className="supplier-container">
-          <Header />
-          <Cards/>
-          <MenuBottom/>
+        :
+        <div>
+          <div className="suppliers-container">
+            <Header />
+            <Cards />
+            <MenuBottom />
+          </div>
         </div>
-      </div>
-        
+      }
 
-      </div>
-      
-    }
-      
-      </>
-    );
-  }
-  
-  export default Suppliers;
-  
+    </>
+  );
+}
+
+export default Suppliers;

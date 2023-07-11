@@ -11,7 +11,7 @@ function Cards() {
             </div>
             <main className="cards-container">
                 <div className="cards">
-                    <div className='card'>
+                    <div className='card' key={1}>
                         <h2>Lorem ipsum</h2>
                         <div className='cards-label'>
                             <IoPersonOutline />
@@ -22,7 +22,7 @@ function Cards() {
                             <label>(00)0000-0000</label>
                         </div>
                     </div>
-                    <div className='card'>
+                    <div className='card' key={2}>
                         <h2>Lorem ipsum</h2>
                         <div className='cards-label'>
                             <IoPersonOutline />
@@ -33,7 +33,7 @@ function Cards() {
                             <label>(00)0000-0000</label>
                         </div>
                     </div>
-                    <div className='card'>
+                    <div className='card' key={3}>
                         <h2>Lorem ipsum</h2>
                         <div className='cards-label'>
                             <IoPersonOutline />
@@ -44,7 +44,7 @@ function Cards() {
                             <label>(00)0000-0000</label>
                         </div>
                     </div>
-                    <div className='card'>
+                    <div className='card' key={4}>
                         <h2>Lorem ipsum</h2>
                         <div className='cards-label'>
                             <IoPersonOutline />

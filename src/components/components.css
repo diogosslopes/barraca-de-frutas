@@ -18,14 +18,19 @@ footer {
     gap: 96px;
     border-radius: 8px 8px 0 0;
     box-shadow: 0px -8px 24px 0px rgba(0, 0, 0, 0.15);
+    
+    
 }
 
-footer div {
+footer button {
     width: 73px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: #F0F4F7;
     
 }
 

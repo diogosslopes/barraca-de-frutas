@@ -4,15 +4,15 @@ import { IoPeople } from 'react-icons/io5'
 
 function MenuBottom() {
     return (
-      <footer className="App">
-        <div>
+      <footer className="footer">
+        <button>
         <IoPeople/>
         <p>Fornecedor</p>
-        </div>
-        <div>
+        </button>
+        <button>
         <LuApple/>
         <p>Frutas</p>
-        </div>
+        </button>
       </footer>
     );
   }
