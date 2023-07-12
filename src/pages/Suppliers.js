@@ -14,7 +14,7 @@ function Suppliers() {
   return (
     <>
       {isEmpty.length === 0 ?
-        <div className="suppliers-container">
+        <div className="suppliers-container container">
           <Header />
           <div className="suppliers-div">
             <span>Cadastre seu primeiro fornecedor</span>
@@ -27,7 +27,7 @@ function Suppliers() {
         </div>
         :
         <div>
-          <div className="suppliers-container">
+          <div className="suppliers-container container">
             <Header />
             <Cards />
             <MenuBottom />

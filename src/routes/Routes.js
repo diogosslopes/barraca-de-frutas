@@ -6,6 +6,7 @@ import Supplier from '../pages/Supplier';
 import NewSupplier from '../pages/NewSupplier';
 import NewSupplierCpf from '../pages/NewSupplierCpf';
 import NewSupplierTel from '../pages/NewSupplierTel';
+import NewSupplierFruits from '../pages/NewSupplierFruits';
 
 
 function AppRoutes() {
@@ -18,6 +19,7 @@ function AppRoutes() {
             <Route path='/novofornecedor' element={<NewSupplier/>} />
             <Route path='/novofornecedorcpf' element={<NewSupplierCpf/>} />
             <Route path='/novofornecedortel' element={<NewSupplierTel/> } />
+            <Route path='/novofornecedorfrutas' element={<NewSupplierFruits/> } />
         </Routes>
 </BrowserRouter>
     );

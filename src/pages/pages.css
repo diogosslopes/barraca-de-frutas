@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
+.container{
+        height: 640px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F4F7;
+    overflow-y: scroll;
+}
+
 .main-container {
     width: 100%;
     height: 100vh;
@@ -11,21 +20,23 @@
 
 }
 
-.suppliers-container {
+/* .suppliers-container {
     background-color: #F0F4F7;
     width: 360px;
     height: 640px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 .suppliers-container .suppliers-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 40px;
     margin: 0 16px;
+    flex-grow: 1;
 
 
 }
@@ -196,7 +207,7 @@
     width: 0;
 }
 
-.supplier-container {
+/* .supplier-container {
     height: 640px;
     width: 360px;
     display: flex;
@@ -204,7 +215,7 @@
     background-color: #F0F4F7;
     overflow-y: scroll;
 
-}
+} */
 
 .supplier-tittle {
     display: flex;

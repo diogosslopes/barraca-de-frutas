@@ -8,7 +8,7 @@ import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, 
 import NextButton from "../components/NextButton";
 
 
-function NewSupplierTel() {
+function NewSupplierFruits() {
 
 const black = {
   color: '#212324'
@@ -25,15 +25,16 @@ const black = {
         <div className="cad-buttons">
           <button style={black} id="name">Nome <IoChevronForwardOutline/></button>
           <button style={black} id="name">CPF <IoChevronForwardOutline/></button>
-          <button >Telefone</button>
+          <button style={black} id="name">Telefone <IoChevronForwardOutline/></button>
+          <button >Frutas</button>
         </div>
-        <label>Digite o Telefone do colaborador</label>
-        <input placeholder="Telefone"></input>
+        <label>Escolhas as Frutas do colaborador</label>
+        
       </div>
-      <NextButton />
+      <button>Cadastrar Fornecedor</button>
     </div>
 
   );
 }
 
-export default NewSupplierTel;
+export default NewSupplierFruits;

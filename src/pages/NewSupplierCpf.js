@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
+import NextButton from "../components/NextButton";
 
 
 function NewSupplierCpf() {
@@ -14,7 +16,7 @@ const black = {
 
   return (
 
-    <div className="supplier-container new-supplier">
+    <div className=" new-supplier container">
       <Header />
         <div className="close">
           <IoCloseSharp />
@@ -27,7 +29,9 @@ const black = {
         <label>Digite o CPF do colaborador</label>
         <input placeholder="Nome"></input>
       </div>
-      <MenuBottom />
+      <Link to={'/novofornecedortel'}>
+        <NextButton />
+      </Link>
     </div>
 
   );

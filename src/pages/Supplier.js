@@ -12,7 +12,7 @@ function Supplier() {
 
   return (
 
-    <div className="supplier-container">
+    <div className="supplier-container container">
       <Header />
       <div class="supplier-tittle">
         <h5>Fornecedor</h5>

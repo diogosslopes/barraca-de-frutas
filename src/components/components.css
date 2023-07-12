@@ -49,3 +49,21 @@ footer p {
     line-height: 16px;
     letter-spacing: 0.4px;
 }
+
+.button-next{
+    margin-left: 16px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 328px;
+    height: 40px;
+    padding: 8px 16px 8px 24px;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 1px solid #DA0D1E;
+    cursor: pointer;
+
+    border-radius: 100px;
+}
