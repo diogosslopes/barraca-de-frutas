@@ -159,21 +159,26 @@ footer p {
     
 }
 
-.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate,
-.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked svg{
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked{
     color: #DA0D1E !important;
     width: 24px !important;
     height: 24px !important;
-    /* background-image: url("../images/Rectangle\ 91.svg"); */
+    background-image: url("../images/Rectangle\ 93.png");
+    margin-right: 8px;
     
 }
-/* 
-.MuiCheckbox-root{
-    background-image: url("../images/Rectangle\ 94.svg");
 
-
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root{
+    color: #F0F4F7 !important;
+    border-radius: 0% !important;
+    margin-right: 8px !important;
 }
-.MuiCheckbox-root svg{
+
+.MuiCheckbox-root{
+    background-image: url("../images/Rectangle\ 94.png");
+}
+/* .MuiCheckbox-root svg{
 
     width: 24px !important;
     height: 24px !important;
