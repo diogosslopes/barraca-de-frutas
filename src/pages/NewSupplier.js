@@ -6,6 +6,7 @@ import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
 import NextButton from "../components/NextButton";
 import { Link } from "react-router-dom";
+import ModalCancel from "../components/ModalCancel";
 
 
 function NewSupplier() {
@@ -31,6 +32,7 @@ function NewSupplier() {
       <Link to={'/novofornecedorcpf'}>
         <NextButton />
       </Link>
+      <ModalCancel/>
     </div>
 
   );

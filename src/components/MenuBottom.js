@@ -1,6 +1,6 @@
 import './components.css'
 import { LuApple } from 'react-icons/lu'
-import { IoPeople } from 'react-icons/io5'
+import { IoPeople, IoNutritionOutline } from 'react-icons/io5'
 
 function MenuBottom() {
     return (
@@ -10,7 +10,7 @@ function MenuBottom() {
         <p>Fornecedor</p>
         </button>
         <button>
-        <LuApple/>
+        <IoNutritionOutline/>
         <p>Frutas</p>
         </button>
       </footer>

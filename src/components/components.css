@@ -18,8 +18,8 @@ footer {
     gap: 96px;
     border-radius: 8px 8px 0 0;
     box-shadow: 0px -8px 24px 0px rgba(0, 0, 0, 0.15);
-    
-    
+
+
 }
 
 footer button {
@@ -31,7 +31,7 @@ footer button {
     cursor: pointer;
     border: none;
     background-color: #F0F4F7;
-    
+
 }
 
 footer svg {
@@ -50,7 +50,7 @@ footer p {
     letter-spacing: 0.4px;
 }
 
-.button-next{
+.button-next {
     margin-left: 16px;
     margin-bottom: 40px;
     display: flex;
@@ -67,3 +67,115 @@ footer p {
 
     border-radius: 100px;
 }
+
+.modal-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 641px;
+    background-color: #212324;
+    opacity: 0.6;
+    flex-shrink: 0;
+    z-index: 0;
+
+
+    position: absolute;
+}
+
+.modal-back- {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 641px;
+    flex-shrink: 0;
+    z-index: 0;
+
+
+    position: absolute;
+}
+
+.modal-container {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 16px;
+    padding: 24px;
+    background-color: #fff;
+    z-index: 100;
+    position: absolute;
+
+    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    border-radius: 8px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+.modal-buttons button {
+    width: 132px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: #DA0D1E;
+    color: #F0F4F7;
+    border: none;
+    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 1.25px;
+
+}
+
+.modal-buttons button:first-child {
+    background-color: #fff;
+    border: 1px solid #DA0D1E;
+    color: #DA0D1E;
+    box-shadow: none;
+}
+
+.fruits-list label {
+    margin-bottom: 16px !important;
+    color: #212324 !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+    letter-spacing: 0.15px !important
+}
+
+.fruits-list label span {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    
+}
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate,
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked svg{
+    color: #DA0D1E !important;
+    width: 24px !important;
+    height: 24px !important;
+    /* background-image: url("../images/Rectangle\ 91.svg"); */
+    
+}
+/* 
+.MuiCheckbox-root{
+    background-image: url("../images/Rectangle\ 94.svg");
+
+
+}
+.MuiCheckbox-root svg{
+
+    width: 24px !important;
+    height: 24px !important;
+
+} */

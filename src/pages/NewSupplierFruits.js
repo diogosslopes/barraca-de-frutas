@@ -6,32 +6,66 @@ import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
 import NextButton from "../components/NextButton";
+import celpng from '../images/Celular.png'
+
+import IndeterminateCheckbox from "../components/CheckBox";
 
 
 function NewSupplierFruits() {
 
-const black = {
-  color: '#212324'
-}
+  const [endForm, setEndForm] = useState(false)
+  const black = {
+    color: '#212324'
+  }
+
+  function save(){
+    setEndForm(true)
+  }
 
   return (
 
     <div className=" new-supplier container">
       <Header />
-        <div className="close">
-          <IoCloseSharp />
-        </div>
-      <div className="supllier-datas">
-        <div className="cad-buttons">
-          <button style={black} id="name">Nome <IoChevronForwardOutline/></button>
-          <button style={black} id="name">CPF <IoChevronForwardOutline/></button>
-          <button style={black} id="name">Telefone <IoChevronForwardOutline/></button>
-          <button >Frutas</button>
-        </div>
-        <label>Escolhas as Frutas do colaborador</label>
-        
+      <div className="close">
+        <IoCloseSharp />
       </div>
-      <button>Cadastrar Fornecedor</button>
+
+      {endForm === false ?
+
+        <div>
+          <div className="supllier-datas">
+            <div className="cad-buttons">
+              <button style={black} id="name">Nome <IoChevronForwardOutline /></button>
+              <button style={black} id="name">CPF <IoChevronForwardOutline /></button>
+              <button style={black} id="name">Telefone <IoChevronForwardOutline /></button>
+              <button >Frutas</button>
+            </div>
+            <label>Escolhas as Frutas do colaborador</label>
+            <div className="fruits-list">
+              <IndeterminateCheckbox/>
+              
+            </div>
+          </div>
+          <button id="btn-end-supplier" onClick={save}>Cadastrar Fornecedor</button>
+        </div>
+        :
+      <div>
+        <div className="end-form">
+          <img src={celpng} id="endimg"></img>
+          <h6>Fornecedor cadastrado</h6>
+          <label>Você cadastrou o fornecedor Lorem Ipsum dolor com sucesso!!</label>
+        </div>
+        <Link to={'/'}><button id="btn-end-supplier">Voltar ao inicio</button></Link>
+      </div>
+
+      }
+
+
+
+
+
+
+
     </div>
 
   );
