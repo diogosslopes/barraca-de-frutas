@@ -1,6 +1,7 @@
 import './components.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp } from 'react-icons/io5'
+import FloatingActionButtons from './FloatingButton';
 
 function Cards() {
     return (
