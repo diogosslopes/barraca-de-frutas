@@ -31,7 +31,7 @@ function Suppliers() {
           <div className="suppliers-container container">
             <Header />
             <Cards />
-           
+            <Link to={'/novofornecedor'}><FloatingActionButtons/></Link>
             <MenuBottom item="fornecedor"/>
           </div>
         </div>

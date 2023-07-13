@@ -7,21 +7,27 @@ import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, 
 import NextButton from "../components/NextButton";
 import { Link } from "react-router-dom";
 import ModalCancel from "../components/ModalCancel";
+import CloseButton from "../components/CloseButton";
 
 
 function NewSupplier() {
-
   const red = {
     color: '#da0d1e'
   }
+  const [cancel, setCancel] = useState()
+  const handleModal = c =>{
+    console.log(c)
+    setCancel(c)
+  }
+  
+
+  console.log(cancel)
 
   return (
 
     <div className=" new-supplier container">
       <Header />
-        <div className="close">
-          <IoCloseSharp />
-        </div>
+      <CloseButton cancel={handleModal} />
       <div className="supllier-datas">
         <div className="cad-buttons">
           <button >Nome</button>
@@ -32,7 +38,7 @@ function NewSupplier() {
       <Link to={'/novofornecedorcpf'}>
         <NextButton />
       </Link>
-      <ModalCancel/>
+      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'}/>)}
     </div>
 
   );

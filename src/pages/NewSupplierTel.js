@@ -6,6 +6,8 @@ import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
 import NextButton from "../components/NextButton";
+import CloseButton from "../components/CloseButton";
+import ModalCancel from "../components/ModalCancel";
 
 
 function NewSupplierTel() {
@@ -14,13 +16,19 @@ const black = {
   color: '#212324'
 }
 
+const [cancel, setCancel] = useState()
+
+
+const handleModal = c =>{
+  console.log(c)
+  setCancel(c)
+}
+
   return (
 
     <div className=" new-supplier container">
       <Header />
-        <div className="close">
-          <IoCloseSharp />
-        </div>
+      <CloseButton cancel={handleModal} />
       <div className="supllier-datas">
         <div className="cad-buttons">
           <button style={black} id="name">Nome <IoChevronForwardOutline/></button>
@@ -30,7 +38,11 @@ const black = {
         <label>Digite o Telefone do colaborador</label>
         <input placeholder="Telefone"></input>
       </div>
-      <NextButton />
+      <Link to={'/novofornecedorfrutas'}>
+        <NextButton />
+      </Link>
+      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+      
     </div>
 
   );

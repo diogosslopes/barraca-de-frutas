@@ -5,6 +5,10 @@ import './pages.css'
 import { VscAdd } from 'react-icons/vsc'
 import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
+import FloatingActionButtons from "../components/FloatingButton";
+import FruitsCards from "../components/FruitsCards";
+import {DrawMenu} from "../components/DrawMenu";
+
 
 
 function Fruits() {
@@ -18,7 +22,7 @@ function Fruits() {
           <Header />
           <div className="suppliers-div">
             <span>Cadastre sua primeira fruta</span>
-            <Link to={"novofornecedor"}>
+            <Link to={"/novafruta"}>
               <button><VscAdd /> Cadastrar Fruta</button>
 
             </Link>
@@ -29,7 +33,11 @@ function Fruits() {
         <div>
           <div className="suppliers-container container">
             <Header />
-            <Cards />
+            <FruitsCards />
+            <Link to={'/novafruta'}>
+              <FloatingActionButtons />
+            </Link>
+            <DrawMenu />
             <MenuBottom item="fruta" />
           </div>
         </div>

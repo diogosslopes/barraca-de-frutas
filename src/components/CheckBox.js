@@ -43,8 +43,6 @@ export default function IndeterminateCheckbox() {
             checked={checked[0] && checked[1]}
             indeterminate={checked[0] !== checked[1]}
             onChange={handleChange1}
-            
-
           />
         }
       />
