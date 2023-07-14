@@ -36,7 +36,9 @@ function NewSupplierFruits() {
 
     <div className=" new-supplier container">
       <Header />
-      <CloseButton cancel={handleModal} />
+      <Link to={'/'}>
+        <CloseButton cancel={handleModal} />
+      </Link>
 
       {endForm === false ?
 

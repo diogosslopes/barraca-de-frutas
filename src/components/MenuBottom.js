@@ -9,7 +9,7 @@ function MenuBottom(props) {
 
 
   const [item, setItem] = useState(props.item)
-  console.log(item)
+  
 
   return (
     <>

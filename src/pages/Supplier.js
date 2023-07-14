@@ -4,11 +4,15 @@ import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp } from 'react-icons/io5'
+import { useParams } from "react-router-dom";
 
 
 function Supplier() {
 
+const {id} = useParams()
+const suppliers = JSON.parse(localStorage.getItem('suppliers'))
 
+console.log(suppliers[id])
 
   return (
 
@@ -21,26 +25,25 @@ function Supplier() {
         </button>
       </div>
       <div className="supplier-card">
-        <h5>Lorem ipsum</h5>
+        <h5>{suppliers[id].name}</h5>
         <div className='cards-label'>
           <IoPersonOutline />
-          <label>000.000.000-00</label>
+          <label>{suppliers[id].cpf}</label>
         </div>
         <div className='cards-label'>
           <LuPhone />
-          <label>(00)0000-0000</label>
+          <label>{suppliers[id].phone}</label>
         </div>
       </div>
       <div className="supplier-fruits">
         <span>Frutas</span>
         <ul>
-          <li>Maça</li>
-          <li>Morango</li>
-          <li>Banana</li>
-          <li>Pera</li>
-          <li>Uva</li>
-          <li>Maracuja</li>
-          
+          {suppliers[id].fruits.map((f)=>{
+            return(
+              <li>{f}</li>
+            )
+          })}
+                    
         </ul>
       </div>
       <MenuBottom />

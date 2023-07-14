@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
@@ -8,13 +8,14 @@ import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, 
 import NextButton from "../components/NextButton";
 import ModalCancel from "../components/ModalCancel";
 import CloseButton from "../components/CloseButton";
+import { Context } from "../contexts/Contexts";
 
 
 function NewSupplierCpf() {
 
-const black = {
-  color: '#212324'
-}
+const black = {color: '#212324'}
+const { newSupplierName, setNewSupplierCpf } = useContext(Context)
+
 
 const [cancel, setCancel] = useState()
 
@@ -23,6 +24,8 @@ const handleModal = c =>{
   console.log(c)
   setCancel(c)
 }
+
+console.log(newSupplierName)
 
   return (
 
