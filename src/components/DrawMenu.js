@@ -14,19 +14,32 @@ import { useState } from "react";
 export const DrawMenu = () =>{
 
     const [drawOpen, setDrawOpen] = useState(false)
+    let cardSelected = document.querySelector('#f1')
 
     function open (){
         setDrawOpen(true)
         console.log("true")
+   
+    }
+    
+    function close (){
+        console.log('close')
+        setDrawOpen(false)
+
+    }
+
+    function selectCard (){
+
+
     }
 
     return (
         <>
         <Button onClick={open}>Teste</Button>
-        <Drawer visibility='visible' anchor='bottom' width='280px' open={drawOpen} onClose={() => {setDrawOpen(false)}} >
-            <Box visibility='visible' p={2} height='50px' width='100px' role='presentation' >
+        <Drawer anchor='bottom' width='280px' open={drawOpen} onClose={() => {setDrawOpen(false)}} >
+            <Box overflow='hidden' visibility='visible' p={2} height='50px' width='100px' role='presentation' >
                 <Typography visibility='true' variant='h6' component='div'>
-                    Menu teste
+                    <button onClick={close}>Teste</button>
                 </Typography>
             </Box>
         </Drawer>

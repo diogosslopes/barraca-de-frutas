@@ -8,12 +8,20 @@ import { Link } from "react-router-dom";
 import FloatingActionButtons from "../components/FloatingButton";
 import FruitsCards from "../components/FruitsCards";
 import {DrawMenu} from "../components/DrawMenu";
+import SwipeableEdgeDrawer from "../components/SwipeDrawer";
+import { IoPencil, IoTrashOutline } from "react-icons/io5";
 
 
 
 function Fruits() {
 
   const [isEmpty, setIsEmpty] = useState([1])
+
+  const [action, setAction] = useState()
+  const handleAction = c => {
+    console.log(c)
+    setAction(c)
+  }
 
   return (
     <>
@@ -33,11 +41,24 @@ function Fruits() {
         <div>
           <div className="suppliers-container container">
             <Header />
-            <FruitsCards />
+            <FruitsCards action={handleAction} />
             <Link to={'/novafruta'}>
               <FloatingActionButtons />
             </Link>
-            <DrawMenu />
+            <div className="backdrop-actions-container">
+            </div>
+              <div className="actions-container-">
+                <div className="actions-container">
+                  <button>
+                    <IoPencil />
+                    Editar Fruta
+                  </button>
+                  <button>
+                    <IoTrashOutline></IoTrashOutline>
+                    Excluix Fruta
+                  </button>
+                </div>
+              </div>
             <MenuBottom item="fruta" />
           </div>
         </div>
