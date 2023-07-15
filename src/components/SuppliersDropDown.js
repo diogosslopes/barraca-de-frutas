@@ -17,33 +17,34 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
+
+
 
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
+    personName.indexOf(name) === -1
+    ? theme.typography.fontWeightRegular
+    : theme.typography.fontWeightMedium,
   };
 }
+let suplliersNames = []
 
-export default function MultipleSelect() {
+export default function MultipleSelect(props) {
+  let names = [ ];
+
+  const suppliers = JSON.parse(localStorage.getItem('suppliers'))
+  
+  suppliers.map((sp)=>{
+    names.push(sp.name)
+  })
+
+
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
+    props.supplier(event.target.value)
     const {
       target: { value },
     } = event;

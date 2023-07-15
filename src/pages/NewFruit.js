@@ -14,12 +14,41 @@ import CloseButton from "../components/CloseButton";
 function NewFruit() {
 
   const [endForm, setEndForm] = useState(false)
-
   const [cancel, setCancel] = useState()
+  const [NewFruit, setNewFruit] = useState({})
+  const [fruitName, setFruitName] = useState()
+  const [fruitPrice, setFruitPrice] = useState()
+  const [fruitStock, setFruitStock] = useState()
+  const [fruitSupplier, setFruitSupplier] = useState()
+
+  let fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
   const handleModal = c => {
     console.log(c)
     setCancel(c)
   }
+
+  function storage() {
+    fruitsList.push(NewFruit)
+    localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
+    console.log(fruitsList)
+    /* setEndForm(true) */
+  }
+
+  function saveFruit(){
+    setNewFruit({
+      name: fruitName,
+      price: fruitPrice,
+      stock: fruitStock,
+      supplier: fruitSupplier
+    })
+    storage()
+  }
+
+  function handleSupplier(sp){
+    setFruitSupplier(sp)
+    console.log(fruitSupplier)
+  }
+  
 
 
 
@@ -36,22 +65,23 @@ function NewFruit() {
             <div className="fruit-data">
               <div className="fruit-values">
                 <IoNutritionOutline />
-                <input placeholder="Nome da fruta"></input>
+                <input placeholder="Nome da fruta" value={fruitName} onChange={(e)=> setFruitName(e.target.value)}></input>
               </div>
               <div className="fruit-values">
                 <IoCashOutline />
-                <input placeholder="Preço do Kilo"></input>
+                <input placeholder="Preço do Kilo" value={fruitPrice} onChange={(e)=> setFruitPrice(e.target.value)}></input>
               </div>
               <div className="fruit-values">
                 <IoServerOutline />
-                <input placeholder="Quantidade no estoque"></input>
+                <input placeholder="Quantidade no estoque" value={fruitStock} onChange={(e)=> setFruitStock(e.target.value)} ></input>
               </div>
               <div className="fruit-values">
-                <IoPeopleOutline />
-                <MultipleSelect />
+                <IoPeopleOutline  />
+                <MultipleSelect supplier={handleSupplier} />
               </div>
             </div>
-            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'}/>)}
+            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+            <button id="btn-end-supplier" onClick={saveFruit}>Cadastrar Fruta</button>
 
             <MenuBottom />
           </>

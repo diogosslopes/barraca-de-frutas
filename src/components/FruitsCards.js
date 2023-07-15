@@ -9,6 +9,42 @@ function FruitsCards(props) {
 
     const [selectedCard, setSelectedCard] = useState(false)
 
+    let fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
+
+    fruitsList = [
+        {
+            name: 'Banana',
+            price: '5,99',
+            stock: '70',
+            supplier: 'Diogo Sousa'
+        },
+        {
+            name: 'Uva',
+            price: '9,00',
+            stock: '50',
+            supplier: 'Diogo Sousa'
+        },
+        {
+            name: 'Melão',
+            price: '5,00',
+            stock: '70',
+            supplier: 'Pâmela Chaves'
+        },
+        {
+            name: 'Pera',
+            price: '5,53',
+            stock: '35',
+            supplier: 'Pâmela Chaves'
+        },
+        {
+            name: 'Melancia',
+            price: '5,63',
+            stock: '70',
+            supplier: 'Diogo Sousa'
+        }
+    ]
+
+
     function selectCard (){
 
         let cardSelected = document.querySelector('#f1')
@@ -36,85 +72,25 @@ function FruitsCards(props) {
             </div>
             <main className="cards-container">
                 <div className="cards fruits-cards">
-                    <div className='card fruit-card' key={1}>
+                    {fruitsList.map((f,index)=>{
+                        return(
+                    <div className='card fruit-card' key={index}>
                         <div>
-                            <h2>Maçã</h2>
+                            <h2>{f.name}</h2>
                             <IoCogOutline />
                         </div>
                         <div className='cards-label fruit-price'>
                             
-                            <p><IoCashOutline /> R$ 1,80</p>
-                            <p>75 em estoque</p>
+                            <p><IoCashOutline /> {`R$ ${f.price}`}</p>
+                            <p>{`${f.stock} em estoque`}</p>
                         </div>
                         <div className='cards-label' >
                             <IoPeopleOutline />
-                            <label>Lorem ipsum dolor sit consectetur </label>
+                            <label>{f.supplier}</label>
                         </div>
                     </div>
-
-                    <div id='f1' className='card fruit-card' key={1}>
-                        <div>
-                            <h2>Maçã</h2>
-                            <IoCogOutline onClick={selectCard} />
-                        </div>
-                        <div className='cards-label fruit-price'>
-                            
-                            <p><IoCashOutline /> R$ 1,80</p>
-                            <p>75 em estoque</p>
-                        </div>
-                        <div className='cards-label' >
-                            <IoPeopleOutline />
-                            <label>Lorem ipsum dolor sit consectetur </label>
-                        </div>
-                    </div>
-
-                    <div id='f2' className='card fruit-card' key={1}>
-                        <div>
-                            <h2>Maçã</h2>
-                            <IoCogOutline />
-                        </div>
-                        <div className='cards-label fruit-price'>
-                            
-                            <p><IoCashOutline /> R$ 1,80</p>
-                            <p>75 em estoque</p>
-                        </div>
-                        <div className='cards-label' >
-                            <IoPeopleOutline />
-                            <label>Lorem ipsum dolor sit consectetur </label>
-                        </div>
-                    </div>
-
-                    <div id='f3' className='card fruit-card' key={1}>
-                        <div>
-                            <h2>Maçã</h2>
-                            <IoCogOutline />
-                        </div>
-                        <div className='cards-label fruit-price'>
-                            
-                            <p><IoCashOutline /> R$ 1,80</p>
-                            <p>75 em estoque</p>
-                        </div>
-                        <div className='cards-label' >
-                            <IoPeopleOutline />
-                            <label>Lorem ipsum dolor sit consectetur </label>
-                        </div>
-                    </div>
-
-                    <div id='f4' className='card fruit-card' key={1}>
-                        <div>
-                            <h2>Maçã</h2>
-                            <IoCogOutline />
-                        </div>
-                        <div className='cards-label fruit-price'>
-                            
-                            <p><IoCashOutline /> R$ 1,80</p>
-                            <p>75 em estoque</p>
-                        </div>
-                        <div className='cards-label' >
-                            <IoPeopleOutline />
-                            <label>Lorem ipsum dolor sit consectetur </label>
-                        </div>
-                    </div>
+                        )
+                    })}
                     {/* <DrawMenu /> */}
                 </div>
             </main>
