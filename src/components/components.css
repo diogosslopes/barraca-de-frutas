@@ -448,3 +448,26 @@ footer p {
     visibility: visible;
     transition: all ease-in-out 2s;
 }
+
+.fruits-list-check{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+
+.fruits-check{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    
+}
+.allFruits{
+    margin-left: 0;
+}
+
+.fruits-check label{
+    margin: 0 !important;
+}

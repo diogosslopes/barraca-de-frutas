@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
@@ -8,16 +8,18 @@ import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, 
 import NextButton from "../components/NextButton";
 import CloseButton from "../components/CloseButton";
 import ModalCancel from "../components/ModalCancel";
+import { Context } from "../contexts/Contexts";
 
 
 function NewSupplierTel() {
 
-const black = {
-  color: '#212324'
-}
+const {newSupplierName, newSupplierCpf, setNewSupplierPhone} = useContext(Context)
+const black = {color: '#212324'}
 
 const [cancel, setCancel] = useState()
 
+console.log(newSupplierName)
+console.log(newSupplierCpf)
 
 const handleModal = c =>{
   console.log(c)
@@ -36,7 +38,7 @@ const handleModal = c =>{
           <button >Telefone</button>
         </div>
         <label>Digite o Telefone do colaborador</label>
-        <input placeholder="Telefone"></input>
+        <input onChange={(e)=>{setNewSupplierPhone(e.target.value)}} placeholder="Telefone"></input>
       </div>
       <Link to={'/novofornecedorfrutas'}>
         <NextButton />

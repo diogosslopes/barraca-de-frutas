@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
@@ -10,27 +10,40 @@ import celpng from '../images/Celular.png'
 import CloseButton from "../components/CloseButton";
 import ModalCancel from "../components/ModalCancel";
 import IndeterminateCheckbox from "../components/CheckBox";
+import { Context } from "../contexts/Contexts";
+import FruitsList from "../components/FruitsList";
 
 
 function NewSupplierFruits() {
 
+  const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits } = useContext(Context)
+  let fruitList = []
   const [endForm, setEndForm] = useState(false)
-  const black = {
-    color: '#212324'
-  }
+  const black = { color: '#212324' }
 
-  function save() {
-    setEndForm(true)
-  }
-
+  
   const [cancel, setCancel] = useState()
-
-
+  
+  
   const handleModal = c => {
     console.log(c)
     setCancel(c)
   }
-
+  
+  console.log(newSupplierName)
+  console.log(newSupplierCpf)
+  console.log(newSupplierPhone)
+  
+  function handleFruits(f){
+    console.log(f)
+    fruitList.push( f)
+    console.log(fruitList)
+    
+  }
+  function save() {
+    setNewSupplierFruits(fruitList)
+    setEndForm(true)
+  }
 
   return (
 
@@ -52,7 +65,8 @@ function NewSupplierFruits() {
             </div>
             <label>Escolhas as Frutas do colaborador</label>
             <div className="fruits-list">
-              <IndeterminateCheckbox />
+              {/* <IndeterminateCheckbox fruits={handleFruits} /> */}
+              <FruitsList fruits={handleFruits}/>
             </div>
           </div>
           <button id="btn-end-supplier" onClick={save}>Cadastrar Fornecedor</button>
@@ -69,13 +83,6 @@ function NewSupplierFruits() {
         </div>
 
       }
-
-
-
-
-
-
-
     </div>
 
   );

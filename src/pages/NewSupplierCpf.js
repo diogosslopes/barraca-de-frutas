@@ -38,7 +38,7 @@ console.log(newSupplierName)
           <button id="cpf">CPF</button>
         </div>
         <label>Digite o CPF do colaborador</label>
-        <input placeholder="Nome"></input>
+        <input placeholder="CPF" onChange={(e)=>{setNewSupplierCpf(e.target.value)}}></input>
       </div>
       <Link to={'/novofornecedortel'}>
         <NextButton />

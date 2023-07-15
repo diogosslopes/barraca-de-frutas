@@ -17,6 +17,5 @@ export const ContextProvider = ({children})=>{
             {children}
         </Context.Provider>
     )
-    console.log(newSupplierName)
 
 }

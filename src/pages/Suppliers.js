@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
@@ -6,11 +6,17 @@ import { VscAdd } from 'react-icons/vsc'
 import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
 import FloatingActionButtons from "../components/FloatingButton";
+import { Context } from "../contexts/Contexts";
 
 
 function Suppliers() {
+  const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits } = useContext(Context)
 
   const [isEmpty, setIsEmpty] = useState([1])
+
+  console.log(newSupplierName)
+  console.log(newSupplierCpf)
+  console.log(newSupplierPhone)
 
   return (
     <>

@@ -12,24 +12,20 @@ import { Context } from "../contexts/Contexts";
 
 
 function NewSupplier() {
-  const { newSupplierName, SetNewSupplierName, show } = useContext(Context)
+  const { newSupplierName, setNewSupplierName, show } = useContext(Context)
   const red = {color: '#da0d1e'}
   const [cancel, setCancel] = useState()
+  
   const handleModal = c => {
     console.log(c)
     setCancel(c)
   }
   let suppliers = []
-  const [newSupplier, setNewSupplierName] = useState([])
+  
   suppliers = JSON.parse(localStorage.getItem('suppliers'))
 
   
-  function saveName(){
-    setNewSupplierName('João')
-    show('newSupplierName')
-    console.log(newSupplierName)
-  }
-  
+
 
 
   console.log(cancel)
@@ -44,12 +40,12 @@ function NewSupplier() {
           <button >Nome</button>
         </div>
         <label>Digite o nome do colaborador</label>
-        <input placeholder="Nome"></input>
+        <input placeholder="Nome" onChange={(e)=>{setNewSupplierName(e.target.value)}}></input>
       </div>
-      <Link onClick={saveName} to={'/novofornecedorcpf'} >
+      <Link  to={'/novofornecedorcpf'} >
         <NextButton />
       </Link>
-      <button onClick={show} >Clique</button>
+      <button  >Clique</button>
       {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
     </div>
 
