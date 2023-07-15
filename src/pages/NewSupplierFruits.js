@@ -17,32 +17,49 @@ import FruitsList from "../components/FruitsList";
 function NewSupplierFruits() {
 
   const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits } = useContext(Context)
-  let fruitList = []
   const [endForm, setEndForm] = useState(false)
   const black = { color: '#212324' }
+  let fruitList = []
+  let newSupplier = []
 
-  
+
+  let suppliers = JSON.parse(localStorage.getItem('suppliers')) || []
+
+
+  console.log(suppliers)
+
+
   const [cancel, setCancel] = useState()
-  
-  
+
+
   const handleModal = c => {
     console.log(c)
     setCancel(c)
   }
-  
-  console.log(newSupplierName)
-  console.log(newSupplierCpf)
-  console.log(newSupplierPhone)
-  
-  function handleFruits(f){
-    console.log(f)
-    fruitList.push( f)
-    console.log(fruitList)
-    
+
+
+
+  function handleFruits(f) {
+    fruitList.push(f)
+
   }
-  function save() {
-    setNewSupplierFruits(fruitList)
+
+  function handleNewSupplier() {
+    newSupplier = {
+      name: newSupplierName,
+      cpf: newSupplierCpf,
+      phone: newSupplierPhone,
+      fruits: fruitList
+    }
+
+    console.log(newSupplier)
+    save()
     setEndForm(true)
+  }
+
+  function save() {
+    suppliers.push(newSupplier)
+    localStorage.setItem('suppliers', JSON.stringify(suppliers))
   }
 
   return (
@@ -55,7 +72,7 @@ function NewSupplierFruits() {
 
       {endForm === false ?
 
-        <div>
+        <>
           <div className="supllier-datas">
             <div className="cad-buttons">
               <button style={black} id="name">Nome <IoChevronForwardOutline /></button>
@@ -65,13 +82,12 @@ function NewSupplierFruits() {
             </div>
             <label>Escolhas as Frutas do colaborador</label>
             <div className="fruits-list">
-              {/* <IndeterminateCheckbox fruits={handleFruits} /> */}
-              <FruitsList fruits={handleFruits}/>
+              <FruitsList fruits={handleFruits} />
             </div>
           </div>
-          <button id="btn-end-supplier" onClick={save}>Cadastrar Fornecedor</button>
+<button id="btn-end-supplier" onClick={handleNewSupplier}>Cadastrar Fornecedor</button>
           {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
-        </div>
+        </>
         :
         <div>
           <div className="end-form">

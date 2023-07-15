@@ -10,17 +10,16 @@ import { Context } from "../contexts/Contexts";
 
 
 function Suppliers() {
-  const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits } = useContext(Context)
+  const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits, suppliers } = useContext(Context)
 
-  const [isEmpty, setIsEmpty] = useState([1])
-
-  console.log(newSupplierName)
+ 
+  console.log(suppliers)
   console.log(newSupplierCpf)
   console.log(newSupplierPhone)
 
   return (
     <>
-      {isEmpty.length === 0 ?
+      {suppliers.length === 0 ?
         <div className="suppliers-container container">
           <Header />
           <div className="suppliers-div">

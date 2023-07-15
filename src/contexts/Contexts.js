@@ -8,12 +8,13 @@ export const ContextProvider = ({children})=>{
     const [newSupplierCpf, setNewSupplierCpf] = useState()
     const [newSupplierPhone, setNewSupplierPhone] = useState()
     const [newSupplierFruit, setNewSupplierFruit] = useState()
+    
+    let suppliers = JSON.parse(localStorage.getItem('suppliers')) || []
 
-    function show (){
-    }
+  
     
     return(
-        <Context.Provider value={{show, newSupplierName, newSupplierCpf, newSupplierPhone, newSupplierFruit, setNewSupplierName, setNewSupplierCpf, setNewSupplierPhone, setNewSupplierFruit }}>
+        <Context.Provider value={{suppliers, newSupplierName, newSupplierCpf, newSupplierPhone, newSupplierFruit, setNewSupplierName, setNewSupplierCpf, setNewSupplierPhone, setNewSupplierFruit }}>
             {children}
         </Context.Provider>
     )

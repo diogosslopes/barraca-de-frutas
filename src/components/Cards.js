@@ -8,28 +8,9 @@ import { useState } from 'react';
 function Cards() {
 
     
-    const [suppliers, setSuppliers] = useState([
-        {
-            name: 'Diogo',
-            cpf: '129.919.627-63',
-            phone: '24993027173',
-            fruits: ['Mamão', 'Uva', 'Maçã']
-        },
-        {
-            name: 'Pâmela',
-            cpf: '133.288.817-86',
-            phone: '2499983008',
-            fruits: ['Morango', 'Melancia', 'Pera']
-        },
-        {
-            name: 'Antonio',
-            cpf: '222.312.111-63',
-            phone: '24993027173',
-            fruits: ['Banana', 'Morango', 'Abacate', 'Uva', 'Mamão']
-        }
-    ])
     
-    localStorage.setItem('suppliers', JSON.stringify(suppliers))
+   let suppliers = JSON.parse(localStorage.getItem('suppliers')) || []
+   
     
     return (
         <>
@@ -39,11 +20,13 @@ function Cards() {
             </div>
             <main className="cards-container">
                 <div className="cards">
-                    {suppliers.map((sp,index)=>{  
+                    {suppliers.map((sp,i)=>{  
+
+                        console.log(sp.name)
                         return(
 
-                    <Link to={`/fornecedor/${index}`}>
-                        <div className='card' key={index}>
+                    <Link to={`/fornecedor/${i}`}>
+                        <div className='card' key={i}>
                             <h2>{sp.name}</h2>
                             <div className='cards-label'>
                                 <IoPersonOutline />

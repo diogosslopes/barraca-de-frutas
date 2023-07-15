@@ -471,3 +471,7 @@ footer p {
 .fruits-check label{
     margin: 0 !important;
 }
+
+.fruits-list-container{
+    overflow-y: scroll;
+}

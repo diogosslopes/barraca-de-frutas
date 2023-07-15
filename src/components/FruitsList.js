@@ -6,6 +6,15 @@ const fruitsList = [
     { name: "Maçã" },
     { name: "Uva" },
     { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
+    { name: "Melão" },
     { name: "Pera" }
 ];
 
@@ -35,7 +44,7 @@ function FruitsList(props) {
     };
 
     return (
-        <div className="container my-4" style={{ width: "500px" }}>
+        <div className="fruits-list-container" >
             <form className="fruits-list-check">
                 <h3>Selecionar Frutas</h3>
                 <div className="fruits-check allFruits">

@@ -313,6 +313,7 @@ h5 {
     margin-left: 16px;
     margin-right: 16px;
     flex-grow: 1;
+    overflow-y: scroll;
 }
 
 .supllier-datas button {
@@ -408,5 +409,4 @@ h5 {
 
 .fruits-list{
     display: flex;
-    flex-grow: 1;
 }
