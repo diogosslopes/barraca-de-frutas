@@ -11,43 +11,14 @@ function FruitsCards(props) {
 
     let fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
 
-    fruitsList = [
-        {
-            name: 'Banana',
-            price: '5,99',
-            stock: '70',
-            supplier: 'Diogo Sousa'
-        },
-        {
-            name: 'Uva',
-            price: '9,00',
-            stock: '50',
-            supplier: 'Diogo Sousa'
-        },
-        {
-            name: 'Melão',
-            price: '5,00',
-            stock: '70',
-            supplier: 'Pâmela Chaves'
-        },
-        {
-            name: 'Pera',
-            price: '5,53',
-            stock: '35',
-            supplier: 'Pâmela Chaves'
-        },
-        {
-            name: 'Melancia',
-            price: '5,63',
-            stock: '70',
-            supplier: 'Diogo Sousa'
-        }
-    ]
+   
 
 
-    function selectCard (){
 
-        let cardSelected = document.querySelector('#f1')
+    function selectCard (id){
+
+        props.action(id)
+        let cardSelected = document.querySelector(`#${id}`)
         let actionSelected = document.querySelector('.backdrop-actions-container')
         let actionSelected_ = document.querySelector('.actions-container')
         if (cardSelected.classList.contains('card-selected')){
@@ -74,10 +45,10 @@ function FruitsCards(props) {
                 <div className="cards fruits-cards">
                     {fruitsList.map((f,index)=>{
                         return(
-                    <div className='card fruit-card' key={index}>
+                    <div className='card fruit-card' id={`ID${index}`} key={index}>
                         <div>
                             <h2>{f.name}</h2>
-                            <IoCogOutline />
+                            <IoCogOutline onClick={() => selectCard(`ID${index}`)} />
                         </div>
                         <div className='cards-label fruit-price'>
                             

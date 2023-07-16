@@ -371,7 +371,7 @@ footer p {
 }
 
 .card-selected {
-    z-index: 2000;
+    z-index: 1100;
     position: fixed;
 }
 
@@ -381,7 +381,7 @@ footer p {
     width: 360px;
     position: absolute;
     opacity: .6;
-    z-index: 1100;
+    z-index: 1099;
     display: flex;
     flex-direction: column;
     justify-content: end;

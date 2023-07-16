@@ -15,8 +15,7 @@ import { IoPencil, IoTrashOutline } from "react-icons/io5";
 
 function Fruits() {
 
-  const [isEmpty, setIsEmpty] = useState([1])
-
+  const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
   const [action, setAction] = useState()
   const handleAction = c => {
     console.log(c)
@@ -25,7 +24,7 @@ function Fruits() {
 
   return (
     <>
-      {isEmpty.length === 0 ?
+      {fruitsList.length === 0 ?
         <div className="suppliers-container container">
           <Header />
           <div className="suppliers-div">
@@ -55,7 +54,7 @@ function Fruits() {
                   </button>
                   <button>
                     <IoTrashOutline></IoTrashOutline>
-                    Excluix Fruta
+                    Excluir Fruta
                   </button>
                 </div>
               </div>

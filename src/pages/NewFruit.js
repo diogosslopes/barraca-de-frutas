@@ -27,21 +27,20 @@ function NewFruit() {
     setCancel(c)
   }
 
-  function storage() {
-    fruitsList.push(NewFruit)
-    localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
-    console.log(fruitsList)
-    /* setEndForm(true) */
-  }
 
+  
   function saveFruit(){
-    setNewFruit({
+
+    fruitsList.push({
       name: fruitName,
       price: fruitPrice,
       stock: fruitStock,
       supplier: fruitSupplier
     })
-    storage()
+
+    localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
+    setEndForm(true)
+  
   }
 
   function handleSupplier(sp){
