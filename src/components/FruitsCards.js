@@ -15,10 +15,11 @@ function FruitsCards(props) {
 
 
 
-    function selectCard (id){
+    function selectCard (id, index){
 
-        props.action(id)
-        let cardSelected = document.querySelector(`#${id}`)
+        props.action(index)
+        console.log(id)
+        let cardSelected = document.querySelector(`.${id}`)
         let actionSelected = document.querySelector('.backdrop-actions-container')
         let actionSelected_ = document.querySelector('.actions-container')
         if (cardSelected.classList.contains('card-selected')){
@@ -45,10 +46,10 @@ function FruitsCards(props) {
                 <div className="cards fruits-cards">
                     {fruitsList.map((f,index)=>{
                         return(
-                    <div className='card fruit-card' id={`ID${index}`} key={index}>
+                    <div className={`card fruit-card ID${index}`} id={index} key={index}>
                         <div>
                             <h2>{f.name}</h2>
-                            <IoCogOutline onClick={() => selectCard(`ID${index}`)} />
+                            <IoCogOutline onClick={() => selectCard(`ID${index}`, index)} />
                         </div>
                         <div className='cards-label fruit-price'>
                             

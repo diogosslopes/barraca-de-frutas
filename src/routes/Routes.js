@@ -26,7 +26,7 @@ function AppRoutes() {
                     <Route path='/novofornecedortel' element={<NewSupplierTel />} />
                     <Route path='/novofornecedorfrutas' element={<NewSupplierFruits />} />
                     <Route path='/novafruta' element={<NewFruit />} />
-                    <Route path='/editarfruta' element={<EditFruit />} />
+                    <Route path='/editarfruta/:id' element={<EditFruit />} />
                 </Routes>
             </BrowserRouter>
             </ContextProvider>

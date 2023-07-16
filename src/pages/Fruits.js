@@ -48,10 +48,12 @@ function Fruits() {
             </div>
               <div className="actions-container-">
                 <div className="actions-container">
-                  <button>
-                    <IoPencil />
-                    Editar Fruta
-                  </button>
+                  <Link to={`/editarfruta/${action}`}>
+                    <button>
+                      <IoPencil />
+                      Editar Fruta
+                    </button>
+                  </Link>
                   <button>
                     <IoTrashOutline></IoTrashOutline>
                     Excluir Fruta

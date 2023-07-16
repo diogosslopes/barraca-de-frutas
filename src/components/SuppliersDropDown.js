@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const ITEM_HEIGHT = 20;
+/* const ITEM_HEIGHT = 20;
 const ITEM_PADDING_TOP = 0;
 const MenuProps = {
   PaperProps: {
@@ -23,24 +23,34 @@ const MenuProps = {
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
-    personName.indexOf(name) === -1
-    ? theme.typography.fontWeightRegular
-    : theme.typography.fontWeightMedium,
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
   };
-}
-let suplliersNames = []
+}*/
+
+let suplliersNames = [] 
 
 export default function MultipleSelect(props) {
-  let names = [ ];
+  const [supplierName, setSupplierName] = React.useState(props.supplierEdit)
+  console.log(supplierName)
+  let names = [];
 
   const suppliers = JSON.parse(localStorage.getItem('suppliers'))
-  
-  suppliers.map((sp)=>{
+
+  suppliers.map((sp) => {
     names.push(sp.name)
   })
 
+  if(supplierName === undefined){
+    console.log('Contem')
+    console.log(suppliers)
+  }else{
+    console.log('Não contem')
+    console.log(supplierName)
+  }
 
-  const theme = useTheme();
+/*   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -52,20 +62,20 @@ export default function MultipleSelect(props) {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
-  };
+  }; */
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel  id="demo-multiple-name-label">Fornecedor</InputLabel>
+{/*       <FormControl sx={{ m: 1, width: 300 }}>
+        <InputLabel id="demo-multiple-name-label">Fornecedor</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput  label="Fornecedor" />}
+          input={<OutlinedInput label="Fornecedor" />}
           MenuProps={MenuProps}
-          
+
         >
           {names.map((name) => (
             <MenuItem
@@ -77,7 +87,27 @@ export default function MultipleSelect(props) {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
+      </FormControl> */}
+      
+        {supplierName === undefined ?
+        <select defaultValue={'Fornecedor'}>
+          <option disabled hidden>Fornecedor</option>
+          {names.map((name)=>{
+            return(
+              <option>{name}</option>
+            )
+          })}
+        </select>
+      :
+        <select defaultValue={supplierName}>
+          {names.map((name)=>{
+            return(
+              <option>{name}</option>
+            )
+          })}
+        </select>
+
+      }
     </div>
   );
 }
