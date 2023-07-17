@@ -1,27 +1,14 @@
 
 import React, { useEffect, useState } from "react";
 
-const fruitsList = [
-    { name: "Banana" },
-    { name: "Maçã" },
-    { name: "Uva" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Melão" },
-    { name: "Pera" }
-];
+
+
 
 function FruitsList(props) {
     const [fruits, setFruits] = useState([]);
-
+    
     useEffect(() => {
+        const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
         setFruits(fruitsList);
     }, []);
 

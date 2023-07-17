@@ -36,7 +36,7 @@ export default function MultipleSelect(props) {
   console.log(supplierName)
   let names = [];
 
-  const suppliers = JSON.parse(localStorage.getItem('suppliers'))
+  const suppliers = JSON.parse(localStorage.getItem('suppliers')) || []
 
   suppliers.map((sp) => {
     names.push(sp.name)
@@ -50,11 +50,15 @@ export default function MultipleSelect(props) {
     console.log(supplierName)
   }
 
+  function handleCHange (event){
+    props.supplier(event.target.value)
+
+  }
+
 /*   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
-    props.supplier(event.target.value)
     const {
       target: { value },
     } = event;
@@ -90,7 +94,7 @@ export default function MultipleSelect(props) {
       </FormControl> */}
       
         {supplierName === undefined ?
-        <select defaultValue={'Fornecedor'}>
+        <select onChange={handleCHange} defaultValue={'Fornecedor'}>
           <option disabled hidden>Fornecedor</option>
           {names.map((name)=>{
             return(
@@ -99,7 +103,7 @@ export default function MultipleSelect(props) {
           })}
         </select>
       :
-        <select defaultValue={supplierName}>
+        <select onChange={handleCHange} defaultValue={supplierName}>
           {names.map((name)=>{
             return(
               <option>{name}</option>

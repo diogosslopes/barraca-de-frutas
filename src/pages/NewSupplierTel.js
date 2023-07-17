@@ -9,9 +9,17 @@ import NextButton from "../components/NextButton";
 import CloseButton from "../components/CloseButton";
 import ModalCancel from "../components/ModalCancel";
 import { Context } from "../contexts/Contexts";
+import InputMasked from "../components/InputMasked";
+
+const initialValues = {
+  cpf: '',
+  tel: ''
+};
 
 
 function NewSupplierTel() {
+  const [values, setValues] = useState(initialValues);
+
 
 const {newSupplierName, newSupplierCpf, setNewSupplierPhone} = useContext(Context)
 const black = {color: '#212324'}
@@ -24,6 +32,21 @@ console.log(newSupplierCpf)
 const handleModal = c =>{
   console.log(c)
   setCancel(c)
+}
+let mask = ''
+function handleChange(event) {
+  setValues({
+    ...values,
+    [event.target.name]: event.target.value
+  });
+
+  setNewSupplierPhone(event.target.value)
+}
+if(values.tel.length <= 14){
+   mask = '(99) 9999-99999'
+}else{
+   mask = '(99) 99999-9999'
+
 }
 
   return (
@@ -38,12 +61,19 @@ const handleModal = c =>{
           <button >Telefone</button>
         </div>
         <label>Digite o Telefone do colaborador</label>
-        <input onChange={(e)=>{setNewSupplierPhone(e.target.value)}} placeholder="Telefone"></input>
+       {/*  <input onChange={(e)=>{setNewSupplierPhone(e.target.value)}} placeholder="Telefone"></input> */}
+        <InputMasked
+          name="tel"
+          value={values.tel}
+          onChange={handleChange} 
+          mask={mask}
+          
+          />
       </div>
       <Link to={'/novofornecedorfrutas'}>
         <NextButton />
       </Link>
-      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
       
     </div>
 

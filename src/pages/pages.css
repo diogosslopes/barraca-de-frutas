@@ -154,7 +154,7 @@
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 16px;
-
+    position: relative;
     border-radius: 8px;
     background: var(--shape, #FFF);
     /* Sombra */

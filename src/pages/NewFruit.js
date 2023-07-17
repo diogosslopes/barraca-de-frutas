@@ -79,7 +79,7 @@ function NewFruit() {
                 <MultipleSelect supplier={handleSupplier} />
               </div>
             </div>
-            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={'frutas'} />)}
             <button id="btn-end-supplier" onClick={saveFruit}>Cadastrar Fruta</button>
 
             <MenuBottom />

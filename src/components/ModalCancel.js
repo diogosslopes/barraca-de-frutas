@@ -6,10 +6,56 @@ import { Link } from 'react-router-dom';
 
 function ModalCancel(props) {
   const [type, setType] = useState(props.type)
+  const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
+  const [page, setPage] = useState(props.page) || ''
+
+  console.log(page)
 
   function handleCancel (){
     console.log('Cancelar')
     props.cancel(false)
+}
+
+function handelDelete(id,cardClass){
+  fruitsList.splice(id,1)
+  localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
+  props.cancel(false)
+  console.log(id, cardClass)
+  let cardSelected = document.querySelector(`.${cardClass}`)
+  let actionSelected = document.querySelector('.backdrop-actions-container')
+  let actionSelected_ = document.querySelector('.actions-container')
+  if (cardSelected.classList.contains('card-selected')){
+      cardSelected.classList.remove('card-selected')
+      actionSelected.classList.remove('visible')
+      actionSelected_.classList.remove('actions-container-visible')
+      console.log('Aqui')            
+  }else{
+      cardSelected.classList.add('card-selected')
+      actionSelected.classList.add('visible')
+      actionSelected_.classList.add('actions-container-visible')
+      console.log('Aqui 2')
+  }
+  /* window.location.reload() */
+}
+
+function selectCard (id, index){
+
+  props.action(index)
+  console.log(id)
+  let cardSelected = document.querySelector(`.${id}`)
+  let actionSelected = document.querySelector('.backdrop-actions-container')
+  let actionSelected_ = document.querySelector('.actions-container')
+  if (cardSelected.classList.contains('card-selected')){
+      cardSelected.classList.remove('card-selected')
+      actionSelected.classList.remove('visible')
+      actionSelected_.classList.remove('actions-container-visible')
+      console.log('Aqui')            
+  }else{
+      cardSelected.classList.add('card-selected')
+      actionSelected.classList.add('visible')
+      actionSelected_.classList.add('actions-container-visible')
+      console.log('Aqui 2')
+  }
 }
 
   return (
@@ -25,7 +71,7 @@ function ModalCancel(props) {
           </span>
           <div className='modal-buttons'>
             <button id='cancel' onClick={handleCancel}>Não</button>
-            <Link to={'/'}><button  onClick={handleCancel}>Sim, cancelar</button></Link>
+            <Link to={`/${page}`}><button  onClick={handleCancel}>Sim, cancelar</button></Link>
           </div>
         </div>
 
@@ -38,7 +84,7 @@ function ModalCancel(props) {
           </span>
           <div className='modal-buttons'>
             <button id='cancel' onClick={handleCancel}>Não</button>
-            <Link to={'/frutas'}><button onClick={handleCancel}>Sim, Excluir</button></Link>
+            <Link to={'/frutas'}><button onClick={()=>{handelDelete(props.item, `ID${props.item}`)}}>Sim, Excluir</button></Link>
           </div>
         </div>
 

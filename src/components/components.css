@@ -372,7 +372,6 @@ footer p {
 
 .card-selected {
     z-index: 1100;
-    position: fixed;
 }
 
 .backdrop-actions-container {
@@ -412,7 +411,6 @@ footer p {
     border-radius: 8px 8px 0 0;
     z-index: 1001;
     /* height: 0px; */
-    visibility: visible;
     transition: all linear .15s;
     opacity: 0 !important;
     

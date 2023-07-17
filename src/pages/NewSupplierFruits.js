@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
@@ -9,7 +8,6 @@ import NextButton from "../components/NextButton";
 import celpng from '../images/Celular.png'
 import CloseButton from "../components/CloseButton";
 import ModalCancel from "../components/ModalCancel";
-import IndeterminateCheckbox from "../components/CheckBox";
 import { Context } from "../contexts/Contexts";
 import FruitsList from "../components/FruitsList";
 
@@ -24,6 +22,7 @@ function NewSupplierFruits() {
 
 
   let suppliers = JSON.parse(localStorage.getItem('suppliers')) || []
+  const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
 
 
   console.log(suppliers)
@@ -86,7 +85,7 @@ function NewSupplierFruits() {
             </div>
           </div>
 <button id="btn-end-supplier" onClick={handleNewSupplier}>Cadastrar Fornecedor</button>
-          {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+          {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
         </>
         :
         <div>

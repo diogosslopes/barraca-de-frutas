@@ -3,10 +3,9 @@ import { LuPhone } from 'react-icons/lu'
 import { IoCashOutline, IoCogOutline, IoPeopleOutline, IoPersonOutline, IoSearchSharp } from 'react-icons/io5'
 import FloatingActionButtons from './FloatingButton';
 import { useState } from 'react';
-import { DrawMenu } from './DrawMenu';
 
 function FruitsCards(props) {
-
+    
     const [selectedCard, setSelectedCard] = useState(false)
 
     let fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
@@ -12,8 +12,9 @@ import { Context } from "../contexts/Contexts";
 function Suppliers() {
   const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits, suppliers } = useContext(Context)
 
- 
-  console.log(suppliers)
+
+
+
   console.log(newSupplierCpf)
   console.log(newSupplierPhone)
 
@@ -36,8 +37,8 @@ function Suppliers() {
           <div className="suppliers-container container">
             <Header />
             <Cards />
-            <Link to={'/novofornecedor'}><FloatingActionButtons/></Link>
-            <MenuBottom item="fornecedor"/>
+            <Link to={'/novofornecedor'}><FloatingActionButtons /></Link>
+            <MenuBottom item="fornecedor" />
           </div>
         </div>
       }

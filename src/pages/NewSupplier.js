@@ -26,8 +26,6 @@ function NewSupplier() {
 
   
 
-
-
   console.log(cancel)
 
   return (
@@ -40,13 +38,12 @@ function NewSupplier() {
           <button >Nome</button>
         </div>
         <label>Digite o nome do colaborador</label>
-        <input placeholder="Nome" onChange={(e)=>{setNewSupplierName(e.target.value)}}></input>
+        <input autoFocus placeholder="Nome" onChange={(e)=>{setNewSupplierName(e.target.value)}}></input>
       </div>
       <Link  to={'/novofornecedorcpf'} >
         <NextButton />
       </Link>
-      <button  >Clique</button>
-      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} />)}
+      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
     </div>
 
   );

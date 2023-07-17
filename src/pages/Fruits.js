@@ -7,26 +7,28 @@ import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
 import FloatingActionButtons from "../components/FloatingButton";
 import FruitsCards from "../components/FruitsCards";
-import {DrawMenu} from "../components/DrawMenu";
-import SwipeableEdgeDrawer from "../components/SwipeDrawer";
 import { IoPencil, IoTrashOutline } from "react-icons/io5";
+import ModalCancel from "../components/ModalCancel";
 
 
 
 function Fruits() {
 
   const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
+  
+  const [cancel, setCancel] = useState()
   const [action, setAction] = useState()
   const handleAction = c => {
     console.log(c)
     setAction(c)
   }
-  
-  function handelDelete(id){
-    fruitsList.splice(id,1)
-    localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
-    setAction(!action)
+
+  const handleModal = c => {
+    console.log(c)
+    setCancel(c)
   }
+  
+
 
   return (
     <>
@@ -60,12 +62,13 @@ function Fruits() {
                       Editar Fruta
                     </button>
                   </Link>
-                  <button onClick={()=>{handelDelete(action)}}>
+                  <button onClick={()=>{setCancel(true)}}>
                     <IoTrashOutline></IoTrashOutline>
                     Excluir Fruta
                   </button>
                 </div>
               </div>
+            {cancel && (<ModalCancel cancel={handleModal} type={'delete'} page='frutas' item={action} />)}
             <MenuBottom item="fruta" />
           </div>
         </div>

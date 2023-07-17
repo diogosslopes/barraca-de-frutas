@@ -4,7 +4,7 @@ import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { LuPhone } from 'react-icons/lu'
 import { IoPersonOutline, IoSearchSharp, IoCloseSharp } from 'react-icons/io5'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 function Supplier() {
@@ -20,9 +20,11 @@ console.log(suppliers[id])
       <Header />
       <div class="supplier-tittle">
         <h5>Fornecedor</h5>
-        <button>
-          <IoCloseSharp />
-        </button>
+        <Link to={'/'}>
+          <button>
+            <IoCloseSharp />
+          </button>
+        </Link>
       </div>
       <div className="supplier-card">
         <h5>{suppliers[id].name}</h5>

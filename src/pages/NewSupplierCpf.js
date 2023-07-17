@@ -9,41 +9,60 @@ import NextButton from "../components/NextButton";
 import ModalCancel from "../components/ModalCancel";
 import CloseButton from "../components/CloseButton";
 import { Context } from "../contexts/Contexts";
+import InputMasked from "../components/InputMasked";
+
+const initialValues = {
+  cpf: '',
+  tel: ''
+};
 
 
 function NewSupplierCpf() {
-
-const black = {color: '#212324'}
-const { newSupplierName, setNewSupplierCpf } = useContext(Context)
-
-
-const [cancel, setCancel] = useState()
+  const [values, setValues] = useState(initialValues);
+  const black = { color: '#212324' }
+  const { newSupplierName, setNewSupplierCpf } = useContext(Context)
 
 
-const handleModal = c =>{
-  console.log(c)
-  setCancel(c)
-}
+  const [cancel, setCancel] = useState()
 
-console.log(newSupplierName)
+
+  const handleModal = c => {
+    console.log(c)
+    setCancel(c)
+  }
+
+  function handleChange(event) {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value
+    });
+    setNewSupplierCpf(event.target.value)
+  }
 
   return (
 
     <div className=" new-supplier container">
       <Header />
-        <CloseButton cancel={handleModal} />
+      <CloseButton cancel={handleModal} />
       <div className="supllier-datas">
         <div className="cad-buttons">
-          <Link to={'/novofornecedor'}><button style={black} id="name">Nome <IoChevronForwardOutline/></button></Link>
+          <Link to={'/novofornecedor'}><button style={black} id="name">Nome <IoChevronForwardOutline /></button></Link>
           <button id="cpf">CPF</button>
         </div>
         <label>Digite o CPF do colaborador</label>
-        <input placeholder="CPF" onChange={(e)=>{setNewSupplierCpf(e.target.value)}}></input>
+        {/* <input id="cpf" placeholder="CPF" onChange={(e) => { setNewSupplierCpf(e.target.value) }}></input> */}
+        <InputMasked
+          name="cpf"
+          mask="999.999.999-99"
+          value={values.cpf}
+          onChange={handleChange}
+          autoFocus
+          />
       </div>
       <Link to={'/novofornecedortel'}>
         <NextButton />
       </Link>
-      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'}/>)}
+      {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
     </div>
 
   );

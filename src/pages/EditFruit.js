@@ -19,7 +19,7 @@ function EditFruit() {
   const [fruitName, setFruitName] = useState(fruitsList[id].name)
   const [fruitPrice, setFruitPrice] = useState(fruitsList[id].price)
   const [fruitStock, setFruitStock] = useState(fruitsList[id].stock)
-  const [fruitSupplier, setFruitSupplier] = useState(fruitsList[id].name)
+  const [fruitSupplier, setFruitSupplier] = useState(fruitsList[id].supplier)
 
 
 
@@ -36,7 +36,7 @@ function EditFruit() {
   
   function saveFruit(){
 
-    fruitsList.push({
+    fruitsList[id] = ({
       name: fruitName,
       price: fruitPrice,
       stock: fruitStock,
@@ -60,15 +60,15 @@ function EditFruit() {
             <div className="fruit-data">
               <div className="fruit-values">
                 <IoNutritionOutline />
-                <input value={fruitsList[id].name} onChange={(e) =>{setFruitName(e.target.value)}} placeholder="Nome da fruta"></input>
+                <input value={fruitName} onChange={(e) =>{setFruitName(e.target.value)}} placeholder="Nome da fruta"></input>
               </div>
               <div className="fruit-values">
                 <IoCashOutline />
-                <input value={fruitsList[id].price} onChange={(e) =>{setFruitPrice(e.target.value)}} placeholder="Preço do Kilo"></input>
+                <input value={fruitPrice} onChange={(e) =>{setFruitPrice(e.target.value)}} placeholder="Preço do Kilo"></input>
               </div>
               <div className="fruit-values">
                 <IoServerOutline />
-                <input value={fruitsList[id].stock} onChange={(e) =>{setFruitStock(e.target.value)}} placeholder="Quantidade no estoque"></input>
+                <input value={fruitStock} onChange={(e) =>{setFruitStock(e.target.value)}} placeholder="Quantidade no estoque"></input>
               </div>
               <div className="fruit-values">
                 <IoPeopleOutline />
@@ -76,7 +76,7 @@ function EditFruit() {
               </div>
             </div>
             {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} item={'Fruta'} />)}
-            <button id="btn-end-supplier" onClick={saveFruit}>Cadastrar Fruta</button>
+            <button id="btn-end-supplier" onClick={saveFruit}>Atualizar Fruta</button>
             <MenuBottom />
           </>
           :
