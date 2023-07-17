@@ -21,6 +21,12 @@ function Fruits() {
     console.log(c)
     setAction(c)
   }
+  
+  function handelDelete(id){
+    fruitsList.splice(id,1)
+    localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
+    setAction(!action)
+  }
 
   return (
     <>
@@ -54,7 +60,7 @@ function Fruits() {
                       Editar Fruta
                     </button>
                   </Link>
-                  <button>
+                  <button onClick={()=>{handelDelete(action)}}>
                     <IoTrashOutline></IoTrashOutline>
                     Excluir Fruta
                   </button>

@@ -75,7 +75,7 @@ function EditFruit() {
                 <MultipleSelect supplier={handleSupplier} supplierEdit={fruitsList[id].supplier} />
               </div>
             </div>
-            {cancel && (<ModalCancel cancel={handleModal} type={'cancelar'} item={'Fruta'} />)}
+            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} item={'Fruta'} />)}
             <button id="btn-end-supplier" onClick={saveFruit}>Cadastrar Fruta</button>
             <MenuBottom />
           </>
