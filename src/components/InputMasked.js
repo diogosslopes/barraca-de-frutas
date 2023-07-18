@@ -5,7 +5,6 @@ const onlyNumbers = (str) => str.replace(/[_]/g, '');
 
 const InputMasked = ({ value, onChange, name, mask }) => {
 
-    console.log(name)
   
    function handleChange(event) {
     onChange({

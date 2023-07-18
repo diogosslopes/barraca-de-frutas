@@ -6,7 +6,6 @@ import { useState } from 'react';
 function CloseButton(props) {
 
     function handleCancel (){
-        console.log('Cancelar')
         props.cancel(true)
     }
 

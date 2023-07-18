@@ -12,7 +12,6 @@ function Supplier() {
 const {id} = useParams()
 const suppliers = JSON.parse(localStorage.getItem('suppliers'))
 
-console.log(suppliers[id])
 
   return (
 

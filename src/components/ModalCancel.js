@@ -9,10 +9,8 @@ function ModalCancel(props) {
   const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
   const [page, setPage] = useState(props.page) || ''
 
-  console.log(page)
 
   function handleCancel (){
-    console.log('Cancelar')
     props.cancel(false)
 }
 
@@ -20,7 +18,6 @@ function handelDelete(id,cardClass){
   fruitsList.splice(id,1)
   localStorage.setItem('fruitsList', JSON.stringify(fruitsList))
   props.cancel(false)
-  console.log(id, cardClass)
   let cardSelected = document.querySelector(`.${cardClass}`)
   let actionSelected = document.querySelector('.backdrop-actions-container')
   let actionSelected_ = document.querySelector('.actions-container')
@@ -28,12 +25,10 @@ function handelDelete(id,cardClass){
       cardSelected.classList.remove('card-selected')
       actionSelected.classList.remove('visible')
       actionSelected_.classList.remove('actions-container-visible')
-      console.log('Aqui')            
   }else{
       cardSelected.classList.add('card-selected')
       actionSelected.classList.add('visible')
       actionSelected_.classList.add('actions-container-visible')
-      console.log('Aqui 2')
   }
   /* window.location.reload() */
 }
@@ -41,7 +36,6 @@ function handelDelete(id,cardClass){
 function selectCard (id, index){
 
   props.action(index)
-  console.log(id)
   let cardSelected = document.querySelector(`.${id}`)
   let actionSelected = document.querySelector('.backdrop-actions-container')
   let actionSelected_ = document.querySelector('.actions-container')
@@ -49,12 +43,10 @@ function selectCard (id, index){
       cardSelected.classList.remove('card-selected')
       actionSelected.classList.remove('visible')
       actionSelected_.classList.remove('actions-container-visible')
-      console.log('Aqui')            
   }else{
       cardSelected.classList.add('card-selected')
       actionSelected.classList.add('visible')
       actionSelected_.classList.add('actions-container-visible')
-      console.log('Aqui 2')
   }
 }
 

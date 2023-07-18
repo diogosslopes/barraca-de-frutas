@@ -99,7 +99,7 @@ footer p {
 
 
     position: absolute;
-/*     bottom: 160px; */
+    /*     bottom: 160px; */
 }
 
 .modal-back- {
@@ -126,7 +126,7 @@ footer p {
     background-color: #fff;
     z-index: 100;
     position: absolute;
-
+    width: 280px;
     box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     border-radius: 8px;
 }
@@ -197,13 +197,6 @@ footer p {
 .MuiCheckbox-root {
     background-image: url("../images/Rectangle\ 94.png");
 }
-
-/* .MuiCheckbox-root svg{
-
-    width: 24px !important;
-    height: 24px !important;
-
-} */
 
 
 .fruit-card {
@@ -315,9 +308,13 @@ footer p {
 
     border-radius: 8px;
     background: var(--shape, #FFF);
-    /* Sombra */
     box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
 }
+
+.fruit-values select{
+   width: 224px; 
+}
+
 
 .fruit-values input {
     border: none;
@@ -398,7 +395,7 @@ footer p {
     justify-content: end;
     visibility: hidden;
     transition: all ease-in-out 2s;
-    
+
 }
 
 .actions-container {
@@ -413,8 +410,8 @@ footer p {
     /* height: 0px; */
     transition: all linear .15s;
     opacity: 0 !important;
-    
-    
+
+
 }
 
 .actions-container button {
@@ -429,12 +426,12 @@ footer p {
     letter-spacing: 1.25px;
 }
 
-.actions-container svg{
+.actions-container svg {
     width: 24px;
     height: 24px;
 }
 
-.actions-container-visible{
+.actions-container-visible {
     visibility: visible;
     height: 72px;
     padding-bottom: 104px;
@@ -442,12 +439,13 @@ footer p {
     transition: all ease-in-out .15s;
     opacity: 1 !important;
 }
-.visible{
+
+.visible {
     visibility: visible;
     transition: all ease-in-out 2s;
 }
 
-.fruits-list-check{
+.fruits-list-check {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -455,26 +453,27 @@ footer p {
 }
 
 
-.fruits-check{
+.fruits-check {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-left: 10px;
-    
+
 }
-.allFruits{
+
+.allFruits {
     margin-left: 0;
 }
 
-.fruits-check label{
+.fruits-check label {
     margin: 0 !important;
 }
 
-.fruits-list-container{
+.fruits-list-container {
     overflow-y: scroll;
 }
 
-select{
+select {
 
     border: none;
     outline: none;
@@ -489,6 +488,41 @@ select{
     letter-spacing: 0.5px
 }
 
-.close button{
+.close button {
     background-color: #F0F4F7;
 }
+
+.error-message {
+    color: #930000;
+    margin-top: 16px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+}
+
+.fruits-list-check input{
+  display: none;
+}
+
+.fruits-list-check input + label:before{
+    content: '';
+    background-image: url("../images/Rectangle\ 88.png");
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background-color: white;
+    margin-right: 8px;
+    
+}
+
+
+
+
+
+.fruits-list-check input:checked + label:before {
+    background-image: url("../images/Rectangle\ 87.png");
+    background-position: center;
+    border: none;
+  }

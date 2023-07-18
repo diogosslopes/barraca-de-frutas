@@ -2,34 +2,39 @@ import { useState } from "react";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
+import { LuPhone } from 'react-icons/lu'
 import { IoCloseSharp, IoNutritionOutline, IoCashOutline, IoServerOutline, IoPeopleOutline } from 'react-icons/io5'
 import MultipleSelect from "../components/SuppliersDropDown";
-import { Link } from "react-router-dom";
 import celpng from '../images/Celular.png'
 import ModalCancel from "../components/ModalCancel";
 import CloseButton from "../components/CloseButton";
+import { Link, useParams } from "react-router-dom";
 
 
-function NewFruit() {
+function EditFruit() {
 
   const [endForm, setEndForm] = useState(false)
-  const [cancel, setCancel] = useState()
-  const [NewFruit, setNewFruit] = useState({})
-  const [fruitName, setFruitName] = useState()
-  const [fruitPrice, setFruitPrice] = useState()
-  const [fruitStock, setFruitStock] = useState()
-  const [fruitSupplier, setFruitSupplier] = useState()
+  const {id} = useParams()
+  const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
+  const [fruitName, setFruitName] = useState(fruitsList[id].name)
+  const [fruitPrice, setFruitPrice] = useState(fruitsList[id].price)
+  const [fruitStock, setFruitStock] = useState(fruitsList[id].stock)
+  const [fruitSupplier, setFruitSupplier] = useState(fruitsList[id].supplier)
 
-  let fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
+
+
+  const [cancel, setCancel] = useState()
   const handleModal = c => {
     setCancel(c)
   }
 
-
+  function handleSupplier(sp){
+    setFruitSupplier(sp)
+  }
   
   function saveFruit(){
 
-    fruitsList.push({
+    fruitsList[id] = ({
       name: fruitName,
       price: fruitPrice,
       stock: fruitStock,
@@ -40,14 +45,6 @@ function NewFruit() {
     setEndForm(true)
   
   }
-
-  function handleSupplier(sp){
-    setFruitSupplier(sp)
-  }
-  
-
-
-
   return (
     <>
       <div className="container">
@@ -55,30 +52,29 @@ function NewFruit() {
         {endForm === false ?
           <>
             <div class="supplier-tittle">
-              <h5>Cadastra Fruta</h5>
+              <h5>Editar Fruta</h5>
               <CloseButton cancel={handleModal} />
             </div>
             <div className="fruit-data">
               <div className="fruit-values">
                 <IoNutritionOutline />
-                <input placeholder="Nome da fruta" value={fruitName} onChange={(e)=> setFruitName(e.target.value)}></input>
+                <input value={fruitName} onChange={(e) =>{setFruitName(e.target.value)}} placeholder="Nome da fruta"></input>
               </div>
               <div className="fruit-values">
                 <IoCashOutline />
-                <input placeholder="Preço do Kilo" type="number" value={fruitPrice} onChange={(e)=> setFruitPrice(e.target.value)}></input>
+                <input value={fruitPrice} onChange={(e) =>{setFruitPrice(e.target.value)}} placeholder="Preço do Kilo"></input>
               </div>
               <div className="fruit-values">
                 <IoServerOutline />
-                <input placeholder="Quantidade no estoque" type="number" value={fruitStock} onChange={(e)=> setFruitStock(e.target.value)} ></input>
+                <input value={fruitStock} onChange={(e) =>{setFruitStock(e.target.value)}} placeholder="Quantidade no estoque"></input>
               </div>
               <div className="fruit-values">
-                <IoPeopleOutline  />
-                <MultipleSelect supplier={handleSupplier} />
+                <IoPeopleOutline />
+                <MultipleSelect supplier={handleSupplier} supplierEdit={fruitsList[id].supplier} />
               </div>
             </div>
-            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={'frutas'} />)}
-            <button id="btn-end-supplier" onClick={saveFruit}>Cadastrar Fruta</button>
-
+            {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} item={'Fruta'} />)}
+            <button id="btn-end-supplier" onClick={saveFruit}>Atualizar Fruta</button>
             <MenuBottom />
           </>
           :
@@ -104,4 +100,4 @@ function NewFruit() {
   );
 }
 
-export default NewFruit;
+export default EditFruit;

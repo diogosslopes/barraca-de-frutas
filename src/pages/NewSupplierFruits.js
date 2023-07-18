@@ -2,9 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import './pages.css'
-import { LuPhone } from 'react-icons/lu'
-import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
-import NextButton from "../components/NextButton";
+import {  IoChevronForwardOutline } from 'react-icons/io5'
 import celpng from '../images/Celular.png'
 import CloseButton from "../components/CloseButton";
 import ModalCancel from "../components/ModalCancel";
@@ -25,14 +23,12 @@ function NewSupplierFruits() {
   const fruitsList = JSON.parse(localStorage.getItem('fruitsList')) || []
 
 
-  console.log(suppliers)
 
 
   const [cancel, setCancel] = useState()
 
 
   const handleModal = c => {
-    console.log(c)
     setCancel(c)
   }
 
@@ -51,7 +47,6 @@ function NewSupplierFruits() {
       fruits: fruitList
     }
 
-    console.log(newSupplier)
     save()
     setEndForm(true)
   }
@@ -61,11 +56,16 @@ function NewSupplierFruits() {
     localStorage.setItem('suppliers', JSON.stringify(suppliers))
   }
 
+  function next (){
+    window.location.replace('/')
+
+  }
+
   return (
 
     <div className=" new-supplier container">
       <Header />
-      <Link to={'/'}>
+      <Link >
         <CloseButton cancel={handleModal} />
       </Link>
 
@@ -84,7 +84,7 @@ function NewSupplierFruits() {
               <FruitsList fruits={handleFruits} />
             </div>
           </div>
-<button id="btn-end-supplier" onClick={handleNewSupplier}>Cadastrar Fornecedor</button>
+          <button id="btn-end-supplier" onClick={handleNewSupplier}>Cadastrar Fornecedor</button>
           {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
         </>
         :
@@ -94,7 +94,7 @@ function NewSupplierFruits() {
             <h6>Fornecedor cadastrado</h6>
             <label>Você cadastrou o fornecedor Lorem Ipsum dolor com sucesso!!</label>
           </div>
-          <Link to={'/'}><button id="btn-end-supplier">Voltar ao inicio</button></Link>
+          <Link to={'/'}><button onClick={next} id="btn-end-supplier">Voltar ao inicio</button></Link>
         </div>
 
       }

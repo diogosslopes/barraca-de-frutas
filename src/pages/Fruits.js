@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
 import { VscAdd } from 'react-icons/vsc'
-import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
 import FloatingActionButtons from "../components/FloatingButton";
 import FruitsCards from "../components/FruitsCards";
@@ -19,12 +18,10 @@ function Fruits() {
   const [cancel, setCancel] = useState()
   const [action, setAction] = useState()
   const handleAction = c => {
-    console.log(c)
     setAction(c)
   }
 
   const handleModal = c => {
-    console.log(c)
     setCancel(c)
   }
   

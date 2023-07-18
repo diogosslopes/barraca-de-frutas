@@ -2,7 +2,6 @@ import { useState } from "react";
 import Header from "../components/Header";
 import MenuBottom from "../components/MenuBottom";
 import './pages.css'
-import { LuPhone } from 'react-icons/lu'
 import { IoCloseSharp, IoNutritionOutline, IoCashOutline, IoServerOutline, IoPeopleOutline } from 'react-icons/io5'
 import MultipleSelect from "../components/SuppliersDropDown";
 import celpng from '../images/Celular.png'
@@ -25,13 +24,11 @@ function EditFruit() {
 
   const [cancel, setCancel] = useState()
   const handleModal = c => {
-    console.log(c)
     setCancel(c)
   }
 
   function handleSupplier(sp){
     setFruitSupplier(sp)
-    console.log(fruitSupplier)
   }
   
   function saveFruit(){
@@ -64,11 +61,11 @@ function EditFruit() {
               </div>
               <div className="fruit-values">
                 <IoCashOutline />
-                <input value={fruitPrice} onChange={(e) =>{setFruitPrice(e.target.value)}} placeholder="Preço do Kilo"></input>
+                <input value={fruitPrice} type="number" onChange={(e) =>{setFruitPrice(e.target.value)}} placeholder="Preço do Kilo"></input>
               </div>
               <div className="fruit-values">
                 <IoServerOutline />
-                <input value={fruitStock} onChange={(e) =>{setFruitStock(e.target.value)}} placeholder="Quantidade no estoque"></input>
+                <input value={fruitStock} type="number" onChange={(e) =>{setFruitStock(e.target.value)}} placeholder="Quantidade no estoque"></input>
               </div>
               <div className="fruit-values">
                 <IoPeopleOutline />

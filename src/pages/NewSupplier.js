@@ -1,11 +1,8 @@
 import { useContext, useState } from "react";
 import Header from "../components/Header";
-import MenuBottom from "../components/MenuBottom";
 import './pages.css'
-import { LuPhone } from 'react-icons/lu'
-import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
 import NextButton from "../components/NextButton";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import ModalCancel from "../components/ModalCancel";
 import CloseButton from "../components/CloseButton";
 import { Context } from "../contexts/Contexts";
@@ -13,20 +10,30 @@ import { Context } from "../contexts/Contexts";
 
 function NewSupplier() {
   const { newSupplierName, setNewSupplierName, show } = useContext(Context)
-  const red = {color: '#da0d1e'}
+  const [supplier, setSupplier] = useState('')
   const [cancel, setCancel] = useState()
+  const [error, setError] = useState(false)
+  const [next, setNext] = useState(false)
   
   const handleModal = c => {
-    console.log(c)
     setCancel(c)
   }
   let suppliers = []
   
   suppliers = JSON.parse(localStorage.getItem('suppliers'))
 
+  function handleChange(e){
+    setNewSupplierName(e)
+    setSupplier(e)
+  }
+
+  function handleNext(error, next) {
+    setError(error)
+    setNext(next)
+    }
+
   
 
-  console.log(cancel)
 
   return (
 
@@ -38,11 +45,12 @@ function NewSupplier() {
           <button >Nome</button>
         </div>
         <label>Digite o nome do colaborador</label>
-        <input autoFocus placeholder="Nome" onChange={(e)=>{setNewSupplierName(e.target.value)}}></input>
+        <input autoFocus placeholder="Nome" onChange={(e)=>{handleChange(e.target.value)}}></input>
+        {error && <p className="error-message">Nome é obrigatorio.</p>}
+          {next && <Navigate to={'/novofornecedorcpf'}/>}
       </div>
-      <Link  to={'/novofornecedorcpf'} >
-        <NextButton />
-      </Link>
+        <NextButton data={'name'} length={supplier.length} function={handleNext} />
+      
       {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
     </div>
 

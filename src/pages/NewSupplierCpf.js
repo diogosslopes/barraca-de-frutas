@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Header from "../components/Header";
-import MenuBottom from "../components/MenuBottom";
 import './pages.css'
-import { LuPhone } from 'react-icons/lu'
-import { IoPersonOutline, IoSearchSharp, IoCloseSharp, IoChevronForwardOutline, IoCloseCircleOutline } from 'react-icons/io5'
+import {  IoChevronForwardOutline } from 'react-icons/io5'
 import NextButton from "../components/NextButton";
 import ModalCancel from "../components/ModalCancel";
 import CloseButton from "../components/CloseButton";
@@ -21,13 +19,14 @@ function NewSupplierCpf() {
   const [values, setValues] = useState(initialValues);
   const black = { color: '#212324' }
   const { newSupplierName, setNewSupplierCpf } = useContext(Context)
+  const [error, setError] = useState(false)
+  const [next, setNext] = useState(false)
 
 
   const [cancel, setCancel] = useState()
 
 
   const handleModal = c => {
-    console.log(c)
     setCancel(c)
   }
 
@@ -37,6 +36,12 @@ function NewSupplierCpf() {
       [event.target.name]: event.target.value
     });
     setNewSupplierCpf(event.target.value)
+    
+  }
+
+  function handleNext(error, next) {
+  setError(error)
+  setNext(next)
   }
 
   return (
@@ -50,18 +55,17 @@ function NewSupplierCpf() {
           <button id="cpf">CPF</button>
         </div>
         <label>Digite o CPF do colaborador</label>
-        {/* <input id="cpf" placeholder="CPF" onChange={(e) => { setNewSupplierCpf(e.target.value) }}></input> */}
         <InputMasked
           name="cpf"
           mask="999.999.999-99"
           value={values.cpf}
           onChange={handleChange}
-          autoFocus
+          
           />
+          {error && <p className="error-message">Digite um CPF válido.</p>}
+          {next && <Navigate to={'/novofornecedortel'}/>}
       </div>
-      <Link to={'/novofornecedortel'}>
-        <NextButton />
-      </Link>
+        <NextButton data={'cpf'} length={values.cpf.length} function={handleNext} />
       {cancel && (<ModalCancel cancel={handleModal} type={'cancel'} page={''} />)}
     </div>
 

@@ -10,13 +10,10 @@ import { Context } from "../contexts/Contexts";
 
 
 function Suppliers() {
-  const { newSupplierName, newSupplierCpf, newSupplierPhone, setNewSupplierFruits, suppliers } = useContext(Context)
+  const { suppliers } = useContext(Context)
 
 
 
-
-  console.log(newSupplierCpf)
-  console.log(newSupplierPhone)
 
   return (
     <>

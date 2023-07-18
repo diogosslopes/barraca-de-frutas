@@ -7,24 +7,26 @@ import { useEffect, useState } from 'react';
 
 function Cards() {
 
-
+    
+    const [search, setSearch] = useState('')
+    
+    const suppliers = JSON.parse(localStorage.getItem('suppliers')).filter((supplier)=> supplier.name.toLowerCase().includes(search.toLowerCase())) || []
+    
+    
     useEffect(()=>{
-        const suppliersList = JSON.parse(localStorage.getItem('suppliers')) || []
-        setSuppliers(suppliersList)
+        
+        
+
     },[])
-    const [suppliers, setSuppliers] = useState([])
+
     
-/*     let cpf1 = '12991962763'
-    const cpfFormated = cpf1.replace(/(\d{3})?(\d{3})?(\d{3})?(\d{2})/, "$1.$2.$3-$4") */
-    
-    
-    /* console.log(cpfFormated) */
+
     
     return (
         <>
             <div className="search-field">
                 <IoSearchSharp />
-                <input placeholder='Pesquisar Fornecedor'></input>
+                <input onChange={(e) => { setSearch(e.target.value) }} placeholder='Pesquisar Fornecedor'></input>
             </div>
             <main className="cards-container">
                 <div className="cards">
