@@ -47,7 +47,7 @@ const suppliers = JSON.parse(localStorage.getItem('suppliers'))
                     
         </ul>
       </div>
-      <MenuBottom />
+      <MenuBottom item="fornecedor" />
     </div>
 
   );

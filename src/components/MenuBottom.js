@@ -24,7 +24,7 @@ function MenuBottom(props) {
                 <p>Fornecedor</p>
               </button>
             </Link>
-            <Link to={'frutas'}>
+            <Link to={'/frutas'}>
               <button onClick={()=> setItem("fruta")}>
                 <IoNutritionOutline />
                 <p>Frutas</p>
